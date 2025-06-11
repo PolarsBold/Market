@@ -16,7 +16,7 @@ async function seed() {
   const order = ["2025-06-10", "Test order", 1];
   await createOrder(order[0], order[1], order[2]);
 
-  for (let i = 1; i <= 10; i++) {
+  for (let i = 1; i <= 15; i++) {
     const price = Math.floor(Math.random() * 25 + 1);
     await createProduct("Product " + i, "Test description", price);
   }

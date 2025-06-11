@@ -1,9 +1,9 @@
 import db from "#db/client";
 
-export async function createOrders_Products(order_id, product_id, quantity) {
-  const sql = `INSERT INTO orders_products(order_id, product_id, quantity) VALUES($1, $2, $3) RETURNING *`;
+export async function createOrders_Products(product_id, order_id, quantity) {
+  const sql = `INSERT INTO orders_products(product_id, order_id, quantity) VALUES($1, $2, $3) RETURNING *`;
   const {
     rows: [order_product],
-  } = await db.query(sql, [order_id, product_id, quantity]);
+  } = await db.query(sql, [product_id, order_id, quantity]);
   return order_product;
 }
